@@ -1,0 +1,5 @@
+name = "vhv-larvae-survey"
+pages_build_output_dir = "./dist"
+
+# Compatibility configuration
+compatibility_date = "2024-04-03"

@@ -5,8 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc -b && vite build",
-    "preview": "vite preview"
+    "build": "vue-tsc -b && vite build --mode local",
+    "build:local": "vue-tsc -b && vite build --mode local",
+    "build:dev": "vue-tsc -b && vite build --mode dev",
+    "build:prod": "vue-tsc -b && vite build --mode prod",
+    "preview": "vite preview",
+    "deploy": "wrangler pages deploy"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.2",
