@@ -1,0 +1,26 @@
+[tasks.install]
+description = "Install frontend dependencies"
+run = "bun install"
+dir = "frontends/vhv-larvae-survey"
+
+[tasks.dev]
+description = "Start the local frontend development server"
+run = "bun run dev"
+dir = "frontends/vhv-larvae-survey"
+
+[tasks.build]
+description = "Build the frontend project for production"
+run = "bun run build"
+dir = "frontends/vhv-larvae-survey"
+
+[tasks.db-start]
+description = "Start the local Supabase container services"
+run = "supabase start"
+
+[tasks.db-reset]
+description = "Reset the local Supabase database and apply seeding"
+run = "supabase db reset"
+
+[tasks.seed-gen]
+description = "Regenerate the database seed SQL files from source json"
+run = "python3 scripts/generate-village-seed/generate_seed.py && python3 scripts/generate-village-seed/seed_mock_surveys.py"
