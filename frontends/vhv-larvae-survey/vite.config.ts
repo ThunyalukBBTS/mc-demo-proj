@@ -11,7 +11,7 @@ export default defineConfig(({ mode }) => {
   
   // Set fallbacks for client env variables
   const supabaseUrl = localEnv.VITE_SUPABASE_URL || rootEnv.VITE_SUPABASE_URL || rootEnv.SUPABASE_URL || ''
-  const supabaseAnonKey = localEnv.VITE_SUPABASE_ANON_KEY || rootEnv.VITE_SUPABASE_ANON_KEY || rootEnv.SUPABASE_PUBLISHABLE_KEY || ''
+  const supabasePublishableKey = localEnv.VITE_SUPABASE_PUBLISHABLE_KEY || localEnv.VITE_SUPABASE_SECRET_KEY || rootEnv.VITE_SUPABASE_PUBLISHABLE_KEY || rootEnv.VITE_SUPABASE_SECRET_KEY || rootEnv.SUPABASE_PUBLISHABLE_KEY || ''
 
   return {
     plugins: [
@@ -29,7 +29,8 @@ export default defineConfig(({ mode }) => {
     base: './', // support nested deployment subdirectories (GitHub Pages, Cloudflare Pages)
     define: {
       'import.meta.env.VITE_SUPABASE_URL': JSON.stringify(supabaseUrl),
-      'import.meta.env.VITE_SUPABASE_ANON_KEY': JSON.stringify(supabaseAnonKey),
+      'import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY': JSON.stringify(supabasePublishableKey),
+      'import.meta.env.VITE_SUPABASE_SECRET_KEY': JSON.stringify(supabasePublishableKey),
     }
   }
 })
